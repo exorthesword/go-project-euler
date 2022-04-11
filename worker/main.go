@@ -18,8 +18,8 @@ func main() {
 
 	w := worker.New(c, "project-euler", worker.Options{})
 
-	w.RegisterWorkflow(prjEulr.Workflow)
-	w.RegisterActivity(prjEulr.Activity)
+	w.RegisterWorkflow(projectEuler.Workflow)
+	w.RegisterActivity(projectEuler.Activity)
 
 	err = w.Run(worker.InterruptCh())
 	if err != nil {
