@@ -1,4 +1,4 @@
-module project-euler
+module projectEuler
 
 go 1.18
 

@@ -5,6 +5,7 @@ import (
 	"go.temporal.io/sdk/client"
 	"go.temporal.io/sdk/worker"
 	"log"
+	"prjEulr"
 )
 
 func main() {
@@ -17,6 +18,12 @@ func main() {
 
 	w := worker.New(c, "project-euler", worker.Options{})
 
-	
+	w.RegisterWorkflow(prjEulr.Workflow)
+	w.RegisterActivity(prjEulr.Activity)
+
+	err = w.Run(worker.InterruptCh())
+	if err != nil {
+		log.Fatalln("unable to start worker", err)
+	}
 
 }
